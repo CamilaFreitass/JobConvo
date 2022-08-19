@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD com Python</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="col-8 m-auto pt-2 pb-2 text-center">
+        <h1>Candidatura</h1>
+    </div>
+
+    <div class="col-8 m-auto pt-3 pb-2 text-center">
+        <a href="/lista" class="btn btn-info">Voltar</a>
+    </div>
+
+    <div class="col-8 m-auto pt-4 pb-2 text-center">
+        <form name="cand" id="cand" action="/createcand/" method="post">
+            {% csrf_token %}
+            <!--{{form.as_p}}-->
+            <div class="form-group mt-4">Nome: {{cand.nome}}</div>
+            <div class="form-group mt-4">Email: {{cand.email}}</div>
+            <div class="form-group mt-4">Pretensão Salarial: {{cand.pretensao_salarial}}</div>
+            <div class="form-group mt-4">Experiência: {{cand.experiencia}}</div>
+            <div class="form-group mt-4">Última escolaridade: {{cand.ultima_escolaridade}}</div>
+            <div class="form-group mt-4">Vaga desejada: {{cand.vaga_desejada}}</div>
+            <input type="submit" class="btn btn-success" value="Candidatar-se">
+        </form>
+    </div>
+
+    {% load static %}
+    <script src="{% static 'javascript.js' %}"></script>
+</body>
+</html>
